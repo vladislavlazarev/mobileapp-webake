@@ -1,0 +1,103 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #FBF6EF;
+  --bg-card: #FFFFFF;
+  --cream: #FFF8F0;
+  --accent: #C75B2B;
+  --accent-light: #E07040;
+  --accent-glow: rgba(199, 91, 43, 0.18);
+  --text: #2D1810;
+  --text-muted: #6B5740;
+  --text-light: #7A6B5D;
+  --success: #3D8B5E;
+  --success-bg: rgba(61, 139, 94, 0.08);
+  --warning: #D4860A;
+  --warning-bg: rgba(212, 134, 10, 0.08);
+  --error: #C23B3B;
+  --error-bg: rgba(195, 59, 59, 0.08);
+  --border: rgba(45, 24, 16, 0.08);
+  --border-accent: rgba(199, 91, 43, 0.15);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text);
+  background: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+}
+
+.serif {
+  font-family: 'Fraunces', serif;
+}
+
+/* Mobile: full-screen native feel */
+@media (max-width: 480px) {
+  body {
+    background: var(--bg);
+  }
+  .phone-wrapper {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+  .status-bar, .notch {
+    display: none !important;
+  }
+}
+
+/* Desktop: centered phone frame */
+@media (min-width: 481px) {
+  #root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .phone-wrapper {
+    width: 390px;
+    height: 844px;
+    border-radius: 40px;
+    box-shadow: 0 24px 80px rgba(45, 24, 16, 0.18), 0 0 0 8px #2D1810;
+  }
+}
+
+.phone-wrapper {
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scrollbar hide */
+.screen-scroll::-webkit-scrollbar { display: none; }
+.screen-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.anim-scale-in { animation: scaleIn 0.3s ease both; }
+
+/* Button active states for touch */
+button:active {
+  opacity: 0.85;
+}
